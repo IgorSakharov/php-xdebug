@@ -23,13 +23,13 @@ RUN git clone https://github.com/opencart/opencart.git /tmp/opencart && \
  cd /tmp/opencart && \
  git checkout 2.1.0.1
 RUN cp -r /tmp/opencart/upload/* /var/www/html
-RUN rm -rf /tmp/opencart
-RUN cd /var/www/html
-RUN cp config-dist.php config.php
-RUN cd admin
-RUN cp config-dist.php config.php
-RUN cd .. && cd ..
-#RUN chmod -R 0777 /html
+RUN rm -rf /tmp/opencart && \
+ cd /var/www/html && \
+ cp config-dist.php config.php && \
+ cd admin && \
+ cp config-dist.php config.php && \
+ cd .. && cd .. && \
+chmod -R 0777 html/*
 RUN docker-php-ext-install gd mcrypt zip
 RUN docker-php-ext-enable gd mcrypt zip
 
