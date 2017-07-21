@@ -30,7 +30,7 @@ RUN rm -rf /tmp/opencart && \
  cp config-dist.php config.php && \
  cd .. && cd .. && \
 chmod -R 0777 html/*
-RUN docker-php-ext-install gd mcrypt zip
+RUN docker-php-ext-install gd mcrypt zip mysql mysqli pdo pdo_mysql  
 RUN docker-php-ext-enable gd mcrypt zip
 
 
